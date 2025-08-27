@@ -1,5 +1,9 @@
 # General
 Project focuses on the deployment of sensing and inference of human count using the ESP32 MCU within a small self-study glass cube (Tellus, University of Oulu). Built using the Platformio IDE extension for VSCode, some external libraries are used. Inference and model deployment on the ESP32 MCU is implemented using Tensorflow Lite Micro library, a restructured official version (needed for PIO/Arduino support) from the Platformio registry. 
+# Project structure
+ 1. AIDA: Modelling directory
+ 2. CoAPServer: Python CoAP server
+ 3. ESP32Inference: Actual program code for the ESP32, the easiest way to compile and flash is to use it with PlatformIO (since it doesn't have CMakelists). PlatformIO will also pull the correct Tensorflow Lite Micro library (check platformio.ini).
 # Current state
 1. System collects 9 sensor readings every 10 seconds (co2_ppm, tvoc_ppm, bmp280_temperature, bmp280_pressure, mlx_object_temperature, mlx_ambient_temperature, humidity_dht, temperature_dht, pir_uptime) and sends them to the server (using CoAP protocol over Wifi), the server stores them into SQL database.
 2. The system implements LSTM model, and can run inference and output predictions, and send them to the server. When inference starts system collects 20 observations for the seeding data sequence (about 3.5 minutes of warm-up time). Inference is implemented as a separate RTOS task and doesn't block the main loop, so the system is always responsive. Process synchronization is achieved using RTOS Event Groups.
