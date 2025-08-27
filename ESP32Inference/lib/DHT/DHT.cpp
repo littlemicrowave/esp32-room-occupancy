@@ -1,5 +1,5 @@
 #include "DHT.h"
-#define WAKE_UP_DELAY 20//in microseconds (20ms)
+#define WAKE_UP_DELAY 20//in milliseconds (20ms)
 #define MICROSECONDS_TO_ABP_TICKS(ms) ms*80
 #define SENSOR_TIMEOUT_MS 2000
 
