@@ -1,11 +1,9 @@
 # General
 Project focuses on the deployment of sensing and inference of human count using the ESP32 MCU within a small self-study glass cube (Tellus, University of Oulu). Built using the Platformio IDE extension for VSCode, some external libraries are used. Inference and model deployment on the ESP32 MCU is implemented using Tensorflow Lite Micro library, a restructured official version (needed for PIO/Arduino support) from the Platformio registry. 
-<<<<<<< HEAD
 # Project structure
  1. AIDA: Modelling directory
  2. CoAPServer: Python CoAP server
  3. ESP32Inference: Actual program code for the ESP32, the easiest way to compile and flash is to use it with PlatformIO (since it doesn't have CMakelists). PlatformIO will also pull the correct Tensorflow Lite Micro library (check platformio.ini).
-=======
 # Setup
 ![](Setup.png)
 * ESP32-WROOM-32 MCU
@@ -19,7 +17,6 @@ Project focuses on the deployment of sensing and inference of human count using 
 GY-91, CCS811 and MLX are sharing same I2C bus, DHT uses single wire so RMT driver was used for high precision pulse width capture and decoding.
 
 
->>>>>>> d3e9d3c (More documentation)
 # Current state
 * Collects 9 sensor readings every 10s  
 Data is sent to server via CoAP using Wi-Fi module and stored in DB
